@@ -1,6 +1,6 @@
 require 'spec_helper_acceptance'
 
-describe 'Reboot when Finished' do
+describe 'Reboot when Finished', :integration do
   let(:reboot_manifest) do
     <<-MANIFEST
       notify { 'step_1':
