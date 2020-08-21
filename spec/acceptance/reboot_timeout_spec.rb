@@ -1,6 +1,6 @@
 require 'spec_helper_acceptance'
 
-describe 'Custom Timeout' do
+describe 'Custom Timeout', :integration do
   let(:reboot_manifest) do
     <<-MANIFEST
       notify { 'step_1':
