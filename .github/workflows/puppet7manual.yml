@@ -20,7 +20,7 @@ jobs:
           cat <<EOF >> test_machines.json
           {
             "url" : "https://api.github.com/repos/$GITHUB_REPOSITORY/actions/runs/$GITHUB_RUN_ID",
-            "osList": ["windows-server-2012-r2-dc-v20200813", "windows-server-2016-dc-v20200813", "windows-server-2019-dc-core-v20200813", "centos-7-v20200811", "debian-10-buster-v20200805"]
+            "osList": ["windows-server-2012-r2-dc-v20200813", "windows-server-2016-dc-v20200813", "windows-server-2019-dc-core-v20200813", "rhel-8-v20200811", "centos-7-v20200811", "debian-10-buster-v20200805"]
           }
           EOF
           curl -X POST -H "Authorization:bearer ${{ secrets.GCP_PROVISIONER_KEY }}" https://provision-service-6f3kfepqcq-ez.a.run.app/v1/provision --data @test_machines.json > inventory.yaml
