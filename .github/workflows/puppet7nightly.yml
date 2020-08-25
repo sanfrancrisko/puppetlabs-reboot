@@ -37,7 +37,7 @@ jobs:
       - name: Install module
         run: bundle exec rake 'litmus:install_module'
       - name: Run acceptance tests
-        run: bundle exec rake 'litmus:acceptance:parallel'
+        run: bundle exec rake 'litmus:acceptance:parallel[integration]'
       - name: Spec Tests
         if: ${{ always() }}
         run: bundle exec rake parallel_spec
