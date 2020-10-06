@@ -1,0 +1,22 @@
+---
+name: "ruby27_unit_weekly"
+on:
+  schedule:
+    - cron: '0 4 * * 1'
+  workflow_dispatch:
+jobs:
+  SpecTests:
+    env:
+      HONEYCOMB_WRITEKEY: 7f3c63a70eecc61d635917de46bea4e6
+      HONEYCOMB_DATASET: ag7rb27
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v1
+      - name: Set up Ruby 2.7
+        uses: actions/setup-ruby@v1
+        with:
+          ruby-version: 2.7
+      - name: Install gems
+        run: bundle install
+      - name: Spec Tests
+        run: bundle exec rake parallel_spec
