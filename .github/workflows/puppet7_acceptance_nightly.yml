@@ -29,7 +29,7 @@ jobs:
             ]
           }
           EOF
-          curl -X POST -H "Authorization:bearer ${{ secrets.GCP_PROVISIONER_KEY }}" https://facade-main-6f3kfepqcq-ew.a.run.app/v1/provision --data @test_machines.json > inventory.yaml
+          curl -X POST -H "Authorization:bearer ${{ secrets.GCP_PROVISIONER_KEY }}" https://prov-serv-6f3kfepqcq-ew.a.run.app/v1/provision --data @test_machines.json > inventory.yaml
       - name: Install gems
         run: bundle install
       - name: Install agent
@@ -54,4 +54,4 @@ jobs:
           EOF
           echo "Removing environment for uuid"
           cat delete_resources.json
-          curl -X DELETE -H "Authorization:bearer ${{ secrets.GCP_PROVISIONER_KEY }}" https://facade-main-6f3kfepqcq-ew.a.run.app/v1/provision --data @delete_resources.json
+          curl -X DELETE -H "Authorization:bearer ${{ secrets.GCP_PROVISIONER_KEY }}" https://prov-serv-6f3kfepqcq-ew.a.run.app/v1/provision --data @delete_resources.json
